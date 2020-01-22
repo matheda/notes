@@ -1,0 +1,13 @@
+Vim Masterclass by Jason Cannon
+
+h move left
+j move down
+k move up
+l move right
+
+^F page down (forward)
+^B page up (backward)
+
+w move forward by word
+W move forward by word 
+
