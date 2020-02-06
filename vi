@@ -1,13 +1,236 @@
 Vim Masterclass by Jason Cannon
 
-h move left
-j move down
-k move up
-l move right
+3 modes: normal, insert, line
+vim starts in normal mode
 
-^F page down (forward)
-^B page up (backward)
+enter insert mode
+i
 
-w move forward by word
-W move forward by word 
+leave insert mode
+esc
+
+enter line mode
+:
+
+exit line mode
+esc -or- complete command
+
+write
+:w, enter
+
+write and quit
+:wq, enter
+
+quit without saving
+:q!, enter
+
+move left
+h
+
+move down
+j
+
+move up
+k
+
+move right
+l
+
+page down (forward)
+^f
+
+page up (backward)
+^b
+
+move forward by word
+w
+
+move forward by word using white space as word boundary
+(ignores punctuation)
+W
+
+move backward by word
+b
+
+move backward by word using white space as word boundary
+(ignores punctuation)
+B
+
+scroll text up, maintaining position
+z, enter
+
+move to position 0 on line
+0
+
+move to beginning of text on line
+^
+
+move to end of line
+$
+
+go to line command has two forms:
+    gg defaults to first line of file
+    G defaults to last line of file
+
+go to beginning of file
+gg -or- 1gg
+
+go to end of file
+G -or- $G -or- :$, enter
+
+go to line 2
+2gg -or- 2G -or- :2, enter
+
+display file status, line count
+^g
+
+display byte count
+g^g
+
+turn on ruler (show position at bottom right)
+:set ruler
+
+turn off ruler
+:set noruler
+
+toggle ruler
+:set ruler!
+
+delete character at cursor position 
+x -or- dl
+
+delete character to left of cursor position
+X -or dh
+
+delete word (from current position)
+dw
+^^ operation{motion}
+
+delete current line and one below it
+dj
+
+delete current line and one above it
+dk
+
+delete from left of cursor to beginning of line
+d0
+
+delete from cursor to end of line
+d$ -or- D
+
+delete current line
+dd
+
+delete 3 lines
+3dd
+^^^ (count)operation{motion}
+
+delete 5 words
+5dw
+
+repeat word motion 3 times
+3w
+
+delete the 3 word motion
+d3w
+
+delete the 3 word motion 2 times
+2d3w
+^^^ [count]operation[count]{motion}
+
+3dw and d3w are equivalent
+
+repeat previous command
+.
+
+force an action (such as q!)
+!
+
+open help (split window)
+:help
+
+close help window
+:q
+
+get help on subject
+:help {subject}
+
+go backward in help
+^o
+
+go forward in help
+^i
+
+jump between windows
+^w^w
+
+find help on unknown command starting with q
+:h :q ^d
+(tab cycles through options)
+
+Cut, Copy, Paste
+
+d and x cut (saves into a register), not just delete
+uses the unnamed/default register
+
+delete (cut) current line
+dd
+
+put (paste) line below cursor
+-or- put character(s) after cursor
+(from unnamed register)
+p
+
+put line above cursor
+-or- put character(s) before cursor
+(from unnamed register)
+P
+
+yank (copy) current line
+yy
+
+undo last command
+u
+
+redo last command
+^r
+
+Register Types
+- register names begin with quote
+- Unnamed (or Default)
+  - ""
+  - holds text from d,c,s,x,y
+- Numbered
+  - "0 to "9 
+  - "0 holds last text (y)anked
+  - "1 holds last text (d)eleted or (c)hanged
+  - numbered registers shift with each d or c
+- Named
+  - "a to "z
+  - use capital letter to append to register
+
+display all registers
+:reg
+
+display 1 and z register
+:reg 1z
+
+put from register 0
+"0p
+
+delete line into "black hole" register
+(unnamed and 0 register will not be changed)
+"_dd
+
+yank line into register a
+"ayy
+
+append line to register a
+"Ayy
+
+repeating register operations
+[count][register]operator
+-or-
+[register][count]operator
+(useful for hypens or other repeating text)
 
